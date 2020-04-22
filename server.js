@@ -38,8 +38,11 @@ app.use(bodyParser.urlencoded({limit : '10mb', extended: false}))
 
 const indexRouter = require('./routes/index')
 const authorsRouter = require('./routes/authors')
+const booksRouter = require('./routes/books')
 app.use('/', indexRouter)
 app.use('/authors', authorsRouter)
+app.use('/books', booksRouter)
+
 
 
 
