@@ -2,6 +2,7 @@ if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
 
+const methodOverride = require('method-override')
 
 const express = require('express')
 const app = express()
@@ -34,7 +35,7 @@ app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({limit : '10mb', extended: false}))
-
+app.use(methodOverride('_method'))
 
 const indexRouter = require('./routes/index')
 const authorsRouter = require('./routes/authors')
